@@ -1,0 +1,167 @@
+// Primary colors
+$orwell: #052336;
+
+//$virginia: #e5e4da;
+$virginia: #f0efe4;
+$kafka: #70b32d;
+
+// Secondary colors
+$brockmann: #7cd2c0;
+$crouwel: #f46200;
+//$doyle: #c4c4be;
+$doyle: #d9d8cf;
+
+// Library colors
+$library-pink: #f97a68;
+$library-gray: #959c90;
+$library-cyan: #6ec8b7;
+$library-purple1: #c4b0b0;
+$library-rust: #c89f92;
+$library-sand: #c8b792;
+$library-orange: #ff8040;
+$library-blue: #8f929c;
+$library-purple2: #c89292;
+$library-green: #b5c8b0;
+
+// Primary variations
+$orwell-dark: #0a1521;
+$virginia-dark: #e5e4da;
+$virginia-darker: #cfcec4;
+
+// Links and buttons
+$link: #58852c;
+$link-hover: #4f9c02;
+$link-active: #356901;
+
+$font-color: #000000;
+
+// Main navigation
+$main-nav: #052336;
+$main-nav-hover: #2a4454;
+$main-nav-active: #1e394a;
+
+// Gray scale
+$gray97: #f6f6f6;
+$gray95: #f3f3f3;
+$gray93: #ededed;
+$gray90: #e6e6e6;
+$gray80: #cccccc;
+$gray70: #B3B3B3;
+$gray65: #A6A6A6;
+$gray60: #999999;
+$gray50: #808080;
+$gray40: #666666;
+$gray30: #4c4c4c;
+
+$gray-invariant-light: #a1a9a8;
+$gray-invariant-dark: #737978;
+
+$hover-color: #d0ebf2;
+$licorice: #262626;
+
+// Detail colors
+$field-error: #cc4949;
+
+// Highlights
+$highlight: #f4f6b2;
+$highlight-hover: #f2f66a;
+
+// Hover and active states
+$brockmann-hover: $brockmann * 1.1; // TODO replace with actual color
+$brockmann-active: $brockmann * 0.9; // TODO replace with actual color
+
+$kafka-hover: #7acc29;
+$kafka-active: #4d801a;
+
+// Third party brand colors
+$facebook: #3b5998;
+$facebook-hover: #324a80;
+$facebook-active: #1e2d4d;
+
+$twitter: #1aa8d8;
+$twitter-hover: #1795bf;
+$twitter-active: #116d8c;
+
+$tumblr: #134C65;
+$tumblr-hover: $tumblr * 0.9;
+$tumblr-active: $tumblr * 0.8;
+
+// Hover colors on book feed, you, getting started etc
+$object-hover: #F5FAF9;
+$object-hover-border: #E9F0EF;
+$object-hover-details: #e1e5e5;
+
+// Book background
+$book-background: #d8ebe7;
+
+// Mixin for using color blending when using 50% against other backgrounds than
+// white. A fallback of plain gray is for browers that do'nt support rgba.
+@mixin gray50 {
+  color:  $gray50;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+// For use on a dark background.
+@mixin inverted-gray50 {
+  color:  $gray50;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+// Convenience rules to extend for common link colors
+
+%white-links {
+  a, a:visited {
+    color: white;
+  }
+
+  a:hover, a:focused {
+    color: white;
+  }
+
+  a:active {
+    color: white;
+  }
+}
+
+%green-links {
+  a, a:visited {
+    color: $link;
+    text-decoration: none;
+  }
+
+  a:hover, a:focus {
+    color: $link-hover;
+  }
+
+  a:active {
+    color: $link-active;
+  }
+}
+
+%black-links {
+  a, a:visited {
+    color: black;
+  }
+
+  a:hover, a:focused {
+    color: black;
+  }
+
+  a:active {
+    color: black;
+  }
+}
+
+%gray-links {
+  a, a:visited {
+    color: $gray50;
+  }
+
+  a:hover, a:focus {
+    color: $gray50;
+  }
+
+  a:active {
+    color: lighten($gray50, 10%);
+  }
+}

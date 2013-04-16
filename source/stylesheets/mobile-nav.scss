@@ -1,0 +1,41 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  @include Scala;
+
+  p {
+    color: $kafka;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+a {
+  color: $link;
+}
+
+header {
+  background: $orwell;
+  height: 48px;
+  width: 100%;
+
+  .logo {
+    padding-top: 11px;
+    padding-left:10px;
+  }
+}
+
+.content {
+  padding:10px;
+  text-align: center;
+
+  h1 {
+    @include Scala;
+    font-size: 50px;
+    line-height: 60px;
+    color: $gray93;
+    text-align: center;
+    font-style: italic;
+  }
+}

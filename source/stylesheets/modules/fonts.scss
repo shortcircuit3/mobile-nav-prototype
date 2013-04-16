@@ -1,0 +1,58 @@
+// http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax
+@font-face {
+  font-family: 'Scala Sans SC';
+  src: font-url('scalasans-regularsc-webfont.eot');
+  src: font-url('scalasans-regularsc-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('scalasans-regularsc-webfont.woff') format('woff'),
+       font-url('scalasans-regularsc-webfont.ttf') format('truetype'),
+       font-url('scalasans-regularsc-webfont.svg#ScalaSansSCRegular') format('svg');
+  font-style: normal;
+  font-weight: normal;
+  // Not currently supported by browsers it would seem.
+  // font-variant: small-caps;
+}
+
+@font-face {
+  font-family: 'Scala';
+  src: font-url('../fonts/scala-webfont.eot');
+  src: font-url('../fonts/scala-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('../fonts/scala-webfont.woff') format('woff'),
+       font-url('../fonts/scala-webfont.ttf') format('truetype'),
+       font-url('../fonts/scala-webfont.svg#Scala') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Scala';
+  src: font-url('../fonts/scala-italic-webfont.eot');
+  src: font-url('../fonts/scala-italic-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('../fonts/scala-italic-webfont.woff') format('woff'),
+       font-url('../fonts/scala-italic-webfont.ttf') format('truetype'),
+       font-url('../fonts/scala-italic-webfont.svg#ScalaItalic') format('svg');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@mixin ScalaSansSC {
+  font-family: "Scala Sans SC", Helvetica, Arial, sans-serif;
+  text-transform: lowercase;
+  text-rendering: optimizeLegibility;
+  // font-variant should work with @font-face but currently browsers seem
+  // to be manually applying the transformation. Which means the fallbacks
+  // will be standard case.
+  // font-variant: small-caps;
+  // Thins the font rendering in Webkit browsers.
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Scala {
+  font-family: Scala, Georgia, Times, serif;
+  font-variant: normal;
+  text-transform: none;
+}
+
+@mixin ScalaItalic {
+  @include Scala;
+  font-style: italic;
+}
