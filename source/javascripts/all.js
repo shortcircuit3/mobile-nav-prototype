@@ -3,12 +3,12 @@
 (function($) {
 
   // Reveal the navigation menu
-  $('body').on('click', '.hamburger', function(){
+  $('body').on('touchend', '.hamburger', function(){
     $('.dropdown').toggleClass('visible');
   });
 
   // Reveal the search form
-  $('body').on('click', '.search', function(){
+  $('body').on('touchend', '.search', function(){
     if ($('.dropdown').hasClass('visible')){
       $('.dropdown').removeClass('visible');
     }
@@ -19,7 +19,7 @@
   });
 
   // Hide the search form
-  $('body').on('click', '.cancel', function(){
+  $('body').on('touchend', '.cancel', function(){
     $('.logo').removeClass('hidden');
     $('.toolbar-icons').removeClass('hidden');
     $('.search-form').addClass('hidden');

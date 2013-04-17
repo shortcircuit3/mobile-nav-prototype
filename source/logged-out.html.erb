@@ -3,10 +3,27 @@ title: Nav Prototype - Logged out
 ---
 
 <header>
-  <div class="logo">
-    <img src="images/logo.png">
+  <div class="blue-bar">
+    <img class="logo" src="images/logo.svg">
+    <nav class="toolbar-icons">
+      <ul>
+        <li><a class="search" href="#"></a></li>
+        <li><a class="hamburger" href="#"></a></li>
+      </ul>
+    </nav>
+    <form action="" class="search-form hidden">
+      <input type="search" required="required" placeholder="Search for books" autofocus="on" />
+      <a class="cancel" href="#"></a>
+      <!-- <input type="reset" value="" alt="clear" /> -->
+    </form>
   </div>
-  <nav></nav>
+
+  <nav class="dropdown">
+    <ul>
+      <li>A unique ebook reader for <br>iPad and iPhone</li>
+      <li><a href="#">Sign in</a> or <a href="#">Sign up</a></li>
+    </ul>
+  </nav>
 </header>
 
 <div class="content">
