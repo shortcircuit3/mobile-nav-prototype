@@ -4,17 +4,21 @@
 
   var isSearchOpen = false;
 
-  $('body').on('touchend', '.content', function(){
+  $('body').on('touchend', '.content', function(e){
+    e.preventDefault();
     if (isSearchOpen === true) {
+      $('.search-field').blur();
       $('.blue-bar2').removeClass('inview');
     }
   });
 
   // Reveal the navigation menu
-  $('body').on('touchend', '.hamburger', function(){
+  $('body').on('touchend', '.hamburger', function(e){
+    e.preventDefault();
     if(isSearchOpen === true){
       $('.blue-bar2').removeClass('inview');
       $('.hamburger').removeClass('hidden');
+      $('.search-field').blur();
       isSearchOpen = false;
       return false;
     } else {
@@ -39,18 +43,11 @@
     }
 
     $('.blue-bar2').addClass('inview');
-    //$('.hamburger').addClass('hidden');
     $('.back').addClass('visible');
-    // $('.search-field').focus();
     isSearchOpen = true;
   }
 
   // Reveal the search form
   $('body').on('touchend ', '.search', onSearchTouchEnd);
-
-  // Hide the search form
-  $('body').on('touchend', '.back', function(){
-
-  });
 
 })(jQuery);
