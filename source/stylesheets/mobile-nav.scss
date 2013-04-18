@@ -121,7 +121,7 @@ header a {
     width:48px;
     height:48px;
     display: inline-block;
-    border-left: 1px solid rgba(255,255,255,0.3);
+    border-left: none;
     background:$orwell url('../images/arrow2.svg') no-repeat 50% 50%;
     background-size: 40%;
     position: absolute;
@@ -182,7 +182,7 @@ input[type="reset"] {
     }
 
     ::-webkit-input-placeholder {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.3);
     }
   }
 }
@@ -298,6 +298,7 @@ input[type="reset"] {
 .content {
   padding:90px 10px 0;
   text-align: center;
+  height:700px;
 
   h1 {
     @include Scala;
