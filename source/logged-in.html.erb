@@ -3,20 +3,21 @@ title: Mobile Nav Prototype - Logged in
 ---
 
 <header>
-  <div class="blue-bar">
+  <div class="blue-bar1">
     <img class="logo" src="images/logo.svg">
-    <nav class="toolbar-icons">
-      <ul>
-        <li><a class="hamburger" href="#"></a></li>
-        <li><a class="search" href="#"></a></li>
-      </ul>
-      <form action="" class="search-form hidden">
-        <input type="search" required="required" placeholder="Search for books" />
-        <a class="cancel" href="#"></a>
-        <!-- <input type="reset" value="" alt="clear" /> -->
-      </form>
-    </nav>
   </div>
+
+  <div class="blue-bar2">
+    <form action="" class="search-form hidden">
+      <a class="cancel" href="#"></a>
+      <a class="search" href="#"></a>
+      <input type="search" required="required" placeholder="Search for books" />
+      <input type="reset" value="" alt="clear" />
+    </form>
+
+  </div>
+
+  <a class="hamburger" href="#"></a>
 
   <nav class="dropdown">
     <ul>
@@ -35,3 +36,4 @@ title: Mobile Nav Prototype - Logged in
   <h1>Logged in</h1>
   <%= partial "protonav" %>
 </div>
+
