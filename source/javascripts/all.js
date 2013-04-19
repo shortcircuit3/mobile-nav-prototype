@@ -3,49 +3,60 @@
 (function($) {
 
   var isSearchOpen = false;
+  var isDropdownOpen = false;
 
-  $('body').on('touchend', '.content', function(e){
+  function onContentTouchEnd(e){
     e.preventDefault();
     if (isSearchOpen === true) {
       $('.search-field').blur();
       $('.blue-bar2').removeClass('inview');
-    }
-  });
-
-  // Reveal the navigation menu
-  $('body').on('touchend', '.hamburger', function(e){
-    e.preventDefault();
-    if(isSearchOpen === true){
-      $('.blue-bar2').removeClass('inview');
-      $('.hamburger').removeClass('hidden');
-      $('.search-field').blur();
       isSearchOpen = false;
-      return false;
-    } else {
-      $('.dropdown').toggleClass('visible');
     }
+  }
 
-    // if ($('.blue-bar2').hasClass('inview')) {
-    //   $('.blue-bar2').removeClass('inview');
-    //   $('.hamburger').removeClass('hidden');
-    //   $('.back').removeClass('visible');
-    //   return false;
-    // }
-  });
+  function onHamburgerTouchEnd(e){
+    e.preventDefault();
+    if (isSearchOpen === true){
+      isSearchOpen = false;
+      $('.blue-bar2').removeClass('inview');
+      $('.search-field').blur();
+      $('.dropdown').addClass('visible');
+      isDropdownOpen = true;
+    } else {
+      if (isDropdownOpen === false) {
+        $('.dropdown').addClass('visible');
+        isDropdownOpen = true;
+      } else {
+        $('.dropdown').removeClass('visible');
+        isDropdownOpen = false;
+      }
+    }
+  }
 
   function onSearchTouchEnd(e){
-    if (e) { e.preventDefault(); }
 
-    if ($('.dropdown').hasClass('visible')){
+    if (isDropdownOpen === true && isSearchOpen === false) {
+      if (e) { e.preventDefault(); }
       $('.dropdown').removeClass('visible');
+      isDropdownOpen = false;
+      $('.blue-bar2').addClass('inview');
       isSearchOpen = true;
       return false;
     }
 
-    $('.blue-bar2').addClass('inview');
-    $('.back').addClass('visible');
-    isSearchOpen = true;
+    if (isDropdownOpen === false && isSearchOpen === false){
+      if (e) { e.preventDefault(); }
+      $('.blue-bar2').addClass('inview');
+      isSearchOpen = true;
+    }
+
   }
+
+  // When users taps the content area
+  $('body').on('touchend', '.content', onContentTouchEnd);
+
+  // When user taps the hamburger icons
+  $('body').on('touchend', '.hamburger', onHamburgerTouchEnd);
 
   // Reveal the search form
   $('body').on('touchend ', '.search', onSearchTouchEnd);
