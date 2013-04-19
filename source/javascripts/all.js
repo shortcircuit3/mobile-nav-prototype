@@ -43,6 +43,14 @@
       isSearchOpen = true;
       return false;
     }
+
+    if (isDropdownOpen === false && isSearchOpen === true) {
+      if (e) { e.preventDefault(); }
+      $('.blue-bar2').removeClass('inview');
+      isSearchOpen = false;
+      return false;
+    }
+
     if (isDropdownOpen === false && isSearchOpen === false){
       if (e) { e.preventDefault(); }
       $('.blue-bar2').addClass('inview');
