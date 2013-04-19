@@ -96,7 +96,7 @@ header a{
   @include header-link;
 
   &.hamburger {
-    background:$orwell url('../images/hamburger1.svg') no-repeat 50% 50%;
+    background:$orwell url('../images/hamburger2.svg') no-repeat 50% 50%;
     background-size: 60%;
     position: absolute;
     right: 0%;
@@ -118,10 +118,10 @@ header label {
   &.search {
     background:$orwell  no-repeat 50% 50%;
     background-color: $orwell;
-    background-image: url('../images/search4.svg');
+    background-image: url('../images/search5.svg');
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 45%;
+    background-size: 60%;
     float: left;
     cursor: pointer;
   }
@@ -141,6 +141,10 @@ header label {
 
 input[type="search"]:invalid + input[type="reset"]{
   display: none;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.5);
 }
 
 input[type="reset"] {
@@ -181,10 +185,6 @@ input[type="reset"] {
 
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;   /* remove the default WebKit styling */
-    }
-
-    ::-webkit-input-placeholder {
-      color: rgba(255,255,255,0.3);
     }
   }
 }
@@ -232,9 +232,25 @@ input[type="reset"] {
       }
 
       &:first-child {
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
         a {
           border: none;
         }
+      }
+
+      &:last-child {
+        -webkit-border-bottom-right-radius: 3px;
+        -webkit-border-bottom-left-radius: 3px;
+        -moz-border-radius-bottomright: 3px;
+        -moz-border-radius-bottomleft: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
       }
 
       a {

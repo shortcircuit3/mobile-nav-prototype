@@ -6,11 +6,14 @@
   var isDropdownOpen = false;
 
   function onContentTouchEnd(e){
-    e.preventDefault();
     if (isSearchOpen === true) {
       $('.search-field').blur();
       $('.blue-bar2').removeClass('inview');
       isSearchOpen = false;
+    }
+    if (isDropdownOpen === true) {
+      $('.dropdown').removeClass('visible');
+      isDropdownOpen = false;
     }
   }
 
@@ -20,8 +23,6 @@
       isSearchOpen = false;
       $('.blue-bar2').removeClass('inview');
       $('.search-field').blur();
-      $('.dropdown').addClass('visible');
-      isDropdownOpen = true;
     } else {
       if (isDropdownOpen === false) {
         $('.dropdown').addClass('visible');
@@ -34,7 +35,6 @@
   }
 
   function onSearchTouchEnd(e){
-
     if (isDropdownOpen === true && isSearchOpen === false) {
       if (e) { e.preventDefault(); }
       $('.dropdown').removeClass('visible');
@@ -43,22 +43,32 @@
       isSearchOpen = true;
       return false;
     }
-
     if (isDropdownOpen === false && isSearchOpen === false){
       if (e) { e.preventDefault(); }
       $('.blue-bar2').addClass('inview');
       isSearchOpen = true;
     }
-
   }
+
+  function onTransitionEnd (e) {
+    console.log('focus');
+    $('.search-field').click();
+  }
+
+  // When the transition is complete
+  $('.blue-bar2').on('webkitTransitionEnd', onTransitionEnd);
 
   // When users taps the content area
   $('body').on('touchend', '.content', onContentTouchEnd);
+  // $('body').on('touchend', 'header', onContentTouchEnd);
 
   // When user taps the hamburger icons
   $('body').on('touchend', '.hamburger', onHamburgerTouchEnd);
 
   // Reveal the search form
   $('body').on('touchend ', '.search', onSearchTouchEnd);
+
+
+
 
 })(jQuery);
